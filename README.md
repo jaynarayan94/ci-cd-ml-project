@@ -93,3 +93,45 @@ docker —-version
 # create ECR with name: my-mlapp
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 866824485776.dkr.ecr.us-east-1.amazonaws.com
 ```
+```
+Explanation of Each Folder and File
+prediction_model/
+config/: Contains configuration files, such as config.py, which typically stores project settings, parameters, and file paths to manage different environments and configurations. The __init__.py file allows this folder to be treated as a module.
+
+datasets/: Contains the dataset files, including loan_approval_dataset.csv and various test data files (test_data_features.csv, test_data_target.csv, etc.) used for validation and testing.
+
+processing/: Houses the scripts for data preprocessing and data handling.
+
+data_handling.py and preprocessing.py likely contain functions for cleaning, transforming, and preparing data for training and prediction.
+The __init__.py file allows these files to be imported as modules.
+trained_models/: Intended to store trained model files. The __init__.py indicates it is a module. Avoid storing large model files here if possible. For MLOps, consider using a model registry (e.g., MLflow or S3) for model storage and management.
+
+pipeline.py: Likely defines the machine learning pipeline, combining different stages such as data preprocessing and model training into one cohesive process.
+
+predict.py: Likely handles predictions by loading a trained model and performing inference on new data.
+
+training_pipeline.py: The main script for training models, executing all stages of the model training process, including data processing, model selection, and training.
+
+VERSION: Stores the version of the current model. Versioning is essential in MLOps for tracking changes and supporting model management.
+
+tests/
+Contains the test suite for the project, which includes:
+
+pytest.ini: Configuration file for running tests with pytest.
+test_prediction.py: Script for validating the prediction process, ensuring the models perform as expected.
+```
+```
+Root-Level Files
+Dockerfile: Defines the environment to run the application, enabling consistent setup across different stages such as development, testing, and production.
+
+MANIFEST.in: Lists files that should be included in the package distribution, such as configuration files or datasets.
+
+README.md: Provides documentation and an overview of the project, including installation, usage, and other relevant details.
+
+requirements.txt: Lists the dependencies required for the project. This file is used to set up environments with the necessary packages, especially useful in CI/CD pipelines.
+
+setup.py: The setup script for packaging and distributing the project as a Python package.
+
+main.py: Likely serves as the main entry point for running the application.
+
+```
