@@ -1,3 +1,38 @@
+Here’s an overview of the project structure:
+```
+ci-cd-ml-project/
+├── prediction_model/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   ├── datasets/
+│   │   ├── __init__.py
+│   │   ├── loan_approval_dataset.csv
+│   │   ├── test_data_features.csv
+│   │   ├── test_data_target.csv
+│   │   └── test_data.csv
+│   ├── processing/
+│   │   ├── __init__.py
+│   │   ├── data_handling.py
+│   │   └── preprocessing.py
+│   ├── trained_models/
+│   │   ├── __init__.py
+│   └── pipeline.py
+│   └── predict.py
+│   └── training_pipeline.py
+│   └── VERSION
+├── tests/
+│   ├── pytest.ini
+│   └── test_prediction.py
+├── .gitignore
+├── Dockerfile
+├── MANIFEST.in
+├── README.md
+├── requirements.txt
+├── setup.py
+└── main.py
+```
+
 # Setup Virtual Environment
 
 ```python
